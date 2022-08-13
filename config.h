@@ -11,10 +11,10 @@ static const char *fonts[]          = { "monospace:size=14",
                                         "Symbols Nerd Font:size=14:type=1000-em:antialias+true:autohint=true"
 };
 static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray1[]       = "#6f533f";
+static const char col_gray2[]       = "#6f533f";
+static const char col_gray3[]       = "#faebd7";
+static const char col_gray4[]       = "#ffffff";
 static const char col_cyan[]        = "#AF987E";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -23,7 +23,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "","","4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
