@@ -11,11 +11,12 @@ static const char *fonts[]          = { "monospace:size=14",
                                         "Symbols Nerd Font:size=14:type=1000-em:antialias+true:autohint=true"
 };
 static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#6f533f";
-static const char col_gray2[]       = "#6f533f";
-static const char col_gray3[]       = "#faebd7";
-static const char col_gray4[]       = "#ffffff";
-static const char col_cyan[]        = "#AF987E";
+static const char col_gray1[]       = "#011f4b";
+static const char col_gray2[]       = "#03396c";
+static const char col_gray3[]       = "#b3cde0";
+static const char col_gray4[]       = "#6497b1";
+static const char col_cyan[]        = "#03396c";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -23,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "","","4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "","", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -64,14 +65,20 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
-static const char *spotifycmd[]  = { "spotify", NULL };
+static const char *shutdown[]  = { "/home/fgz/scripts/shutdown.sh", NULL };
+static const char *volup[]  = { "/home/fgz/scripts/vol_up.sh", NULL };
+static const char *voldown[]  = { "/home/fgz/scripts/vol_down.sh", NULL };
+static const char *scrot[]  = { "/home/fgz/scripts/scrot.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = spotifycmd } },
+	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          {.v = volup } },
+	{ 0,                            XF86XK_AudioLowerVolume,      spawn,          {.v = voldown } },
+	{ 0,                            XK_Print,  spawn,          {.v = scrot } },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = shutdown } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
