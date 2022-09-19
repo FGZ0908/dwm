@@ -11,11 +11,11 @@ static const char *fonts[]          = { "monospace:size=14",
                                         "Symbols Nerd Font:size=14:type=1000-em:antialias+true:autohint=true"
 };
 static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#011f4b";
-static const char col_gray2[]       = "#03396c";
-static const char col_gray3[]       = "#b3cde0";
-static const char col_gray4[]       = "#6497b1";
-static const char col_cyan[]        = "#03396c";
+static const char col_gray1[]       = "#4b3832";
+static const char col_gray2[]       = "#854442";
+static const char col_gray3[]       = "#fff4e6";
+static const char col_gray4[]       = "#3c2f2f";
+static const char col_cyan[]        = "#be9b7b";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "librewolf",  NULL,       NULL,     2,            0,           -1 },
 };
 
 /* layout(s) */
