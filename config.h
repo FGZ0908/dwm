@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "librewolf",  NULL,       NULL,     2,            0,           -1 },
+	{ "firefox",  NULL,     NULL,     0,            0,           -1 },
 };
 
 /* layout(s) */
@@ -64,7 +64,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[]  = { "librewolf", NULL };
+static const char *browsercmd[]  = { "firefox", NULL };
+static const char *signalcmd[]  = { "signal-desktop", NULL };
 static const char *file[]  = { "thunar", NULL };
 static const char *shutdown[]  = { "/home/fgz/scripts/shutdown.sh", NULL };
 static const char *volup[]  = { "/home/fgz/scripts/vol_up.sh", NULL };
@@ -75,6 +76,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = signalcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = file } },
 	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          {.v = volup } },
