@@ -66,10 +66,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *signalcmd[]  = { "signal-desktop", NULL };
+static const char *spotify[]  = { "spotify", NULL };
 static const char *file[]  = { "thunar", NULL };
 static const char *shutdown[]  = { "/home/fgz/scripts/shutdown.sh", NULL };
 static const char *volup[]  = { "/home/fgz/scripts/vol_up.sh", NULL };
 static const char *voldown[]  = { "/home/fgz/scripts/vol_down.sh", NULL };
+static const char *brightup[]  = { "/home/fgz/scripts/bright_up.sh", NULL };
+static const char *brightdown[]  = { "/home/fgz/scripts/bright_down.sh", NULL };
 static const char *scrot[]  = { "/home/fgz/scripts/scrot.sh", NULL };
 
 static Key keys[] = {
@@ -77,10 +80,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = signalcmd } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = spotify } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = file } },
 	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          {.v = volup } },
 	{ 0,                            XF86XK_AudioLowerVolume,      spawn,          {.v = voldown } },
+	{ 0,                            XF86XK_MonBrightnessUp,      spawn,          {.v = brightup } },
+	{ 0,                            XF86XK_MonBrightnessDown,      spawn,          {.v = brightdown } },
 	{ 0,                            XK_Print,  spawn,          {.v = scrot } },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = shutdown } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
