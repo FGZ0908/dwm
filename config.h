@@ -1,14 +1,14 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=14",
-                                        "JoyPixels:pixelsize=14:type=Regular:antialias=true:autohint=true",
-                                        "Noto Sans CJK TC:size=14:type=Medium,Regular:antialias+true:autohint=true",
-                                        "Symbols Nerd Font:size=14:type=1000-em:antialias+true:autohint=true"
+					"JoyPixels:pixelsize=18:type=Regular:antialias=true:autohint=true",
+                                        "Noto Sans CJK TC:size=18:type=Medium,Regular:antialias+true:autohint=true",
+                                        "Symbols Nerd Font:size=18:type=1000-em:antialias+true:autohint=true"
 };
 static const char dmenufont[]       = "monospace:size=14";
 static const char col_gray1[]       = "#4b3832";
@@ -33,11 +33,12 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",  NULL,     NULL,     0,            0,           -1 },
+	{ "firefox",  NULL,     NULL,     2,            0,           -1 },
+	{ "st",       NULL,     NULL,     1,            0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -67,7 +68,9 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *signalcmd[]  = { "signal-desktop", NULL };
 static const char *spotify[]  = { "spotify", NULL };
-static const char *file[]  = { "thunar", NULL };
+static const char *calibre[]  = { "calibre", NULL };
+static const char *file[]  = { "dolphin", NULL };
+static const char *markdown[]  = { "zettlr", NULL };
 static const char *shutdown[]  = { "/home/fgz/scripts/shutdown.sh", NULL };
 static const char *volup[]  = { "/home/fgz/scripts/vol_up.sh", NULL };
 static const char *voldown[]  = { "/home/fgz/scripts/vol_down.sh", NULL };
@@ -83,6 +86,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = spotify } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = file } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = calibre } },
+	{ MODKEY,                       XK_z,      spawn,          {.v = markdown } },
 	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          {.v = volup } },
 	{ 0,                            XF86XK_AudioLowerVolume,      spawn,          {.v = voldown } },
 	{ 0,                            XF86XK_MonBrightnessUp,      spawn,          {.v = brightup } },
@@ -106,7 +111,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                      XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
