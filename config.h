@@ -11,11 +11,11 @@ static const char *fonts[]          = { "monospace:size=14",
                                         "Symbols Nerd Font:size=18:type=1000-em:antialias+true:autohint=true"
 };
 static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#4b3832";
-static const char col_gray2[]       = "#854442";
-static const char col_gray3[]       = "#fff4e6";
-static const char col_gray4[]       = "#3c2f2f";
-static const char col_cyan[]        = "#be9b7b";
+static const char col_gray1[]       = "#333333";
+static const char col_gray2[]       = "#666666";
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray4[]       = "#e6e6e6";
+static const char col_cyan[]        = "#006699";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",  NULL,     NULL,     2,            0,           -1 },
+	{ "zen-browser",  NULL,     NULL,     2,            0,           -1 },
 	{ "st",       NULL,     NULL,     1,            0,           -1 },
 };
 
@@ -65,17 +65,18 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[]  = { "firefox", NULL };
+static const char *browsercmd[]  = { "librewolf", NULL };
 static const char *signalcmd[]  = { "signal-desktop", NULL };
 static const char *spotify[]  = { "spotify", NULL };
 static const char *calibre[]  = { "calibre", NULL };
-static const char *file[]  = { "dolphin", NULL };
-static const char *markdown[]  = { "zettlr", NULL };
+static const char *file[]  = { "thunar", NULL };
+static const char *markdown[]  = { "typora", NULL };
 static const char *shutdown[]  = { "/home/fgz/scripts/shutdown.sh", NULL };
 static const char *volup[]  = { "/home/fgz/scripts/vol_up.sh", NULL };
 static const char *voldown[]  = { "/home/fgz/scripts/vol_down.sh", NULL };
 static const char *brightup[]  = { "/home/fgz/scripts/bright_up.sh", NULL };
 static const char *brightdown[]  = { "/home/fgz/scripts/bright_down.sh", NULL };
+static const char *screenlock[]  = { "/home/fgz/scripts/screen_lock.sh", NULL };
 static const char *scrot[]  = { "/home/fgz/scripts/scrot.sh", NULL };
 
 static Key keys[] = {
@@ -86,6 +87,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = spotify } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_n,      spawn,          {.v = file } },
+	{ MODKEY,                       XK_x,      spawn,          {.v = screenlock } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = calibre } },
 	{ MODKEY,                       XK_z,      spawn,          {.v = markdown } },
 	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          {.v = volup } },
